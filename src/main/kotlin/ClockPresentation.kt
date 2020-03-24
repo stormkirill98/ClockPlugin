@@ -9,5 +9,5 @@ class ClockPresentation : StatusBarWidget.TextPresentation {
 
     override fun getAlignment(): Float = Float.NaN
 
-    override fun getText(): String = "Clock"
+    override fun getText(): String = nowTime()
 }
