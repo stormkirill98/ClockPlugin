@@ -1,13 +1,21 @@
-import com.intellij.openapi.wm.StatusBarWidget
-import com.intellij.util.Consumer
-import java.awt.event.MouseEvent
+import com.intellij.openapi.wm.CustomStatusBarWidget
+import com.intellij.openapi.wm.StatusBar
+import javax.swing.JLabel
+import javax.swing.Timer
 
-class ClockPresentation : StatusBarWidget.TextPresentation {
-    override fun getTooltipText(): String = "Current time"
+class ClockPresentation : CustomStatusBarWidget {
+    private val label = JLabel()
+    private val timer = Timer(1000) { label.text = nowTime() }
 
-    override fun getClickConsumer(): Consumer<MouseEvent>? = null
+    override fun ID(): String = ID
 
-    override fun getAlignment(): Float = Float.NaN
+    override fun getComponent() = label
 
-    override fun getText(): String = nowTime()
+    override fun install(statusBar: StatusBar) = timer.start()
+
+    override fun dispose() = timer.stop()
+
+    companion object {
+        const val ID = "ClockPresentation"
+    }
 }
