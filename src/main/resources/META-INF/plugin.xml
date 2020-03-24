@@ -11,6 +11,7 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+        <statusBarWidgetProvider implementation="ClockProvider"/>
     </extensions>
 
     <actions>
