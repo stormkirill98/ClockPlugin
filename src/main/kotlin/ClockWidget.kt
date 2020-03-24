@@ -1,15 +1,18 @@
-import com.intellij.openapi.project.Project
-import com.intellij.openapi.wm.StatusBarWidget
-import com.intellij.openapi.wm.impl.status.EditorBasedWidget
+import com.intellij.openapi.wm.CustomStatusBarWidget
+import com.intellij.openapi.wm.StatusBar
+import javax.swing.JLabel
+import javax.swing.Timer
 
-const val CLOCK_WIDGET_ID = "ClockWidget"
+class ClockWidget : CustomStatusBarWidget {
+    private val label = JLabel(nowTime())
+    private val timer = Timer(1000) { label.text = nowTime() }
 
-class ClockWidget(project: Project) : EditorBasedWidget(project) {
-    override fun ID(): String {
-        return CLOCK_WIDGET_ID
-    }
+    override fun ID() = ID
+    override fun getComponent() = label
+    override fun install(statusBar: StatusBar) = timer.start()
+    override fun dispose() = timer.stop()
 
-    override fun getPresentation(): StatusBarWidget.WidgetPresentation? {
-        return ClockPresentation()
+    companion object {
+        const val ID = "ClockWidget"
     }
 }
