@@ -1,12 +1,9 @@
 <idea-plugin>
     <id>org.example.ClockPlugin</id>
-    <name>Plugin display name here</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <name>Clock</name>
+    <vendor email="stormkirill98@gmail.com" url="https://vk.com/panihinkirill">KAPanihin</vendor>
 
-    <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-    ]]></description>
+    <description>Add clock to Intellij on center footer!!!</description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
