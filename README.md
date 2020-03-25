@@ -1,3 +1,3 @@
 # ClockPlugin
 
-![alt text](http://url/to/img.png)
+![Screep with clock in IDEA](src/main/resources/images/Capture.PNG)
